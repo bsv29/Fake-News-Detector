@@ -36,7 +36,7 @@ const Signup = () => {
     if (!canSubmit) return;
     
     try {
-      await axios.post('http://localhost:8000/api/v1/auth/register', {
+      await axios.post(`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/api/v1/auth/register`, {
         username: formData.fullName,
         email: formData.email,
         password: formData.password

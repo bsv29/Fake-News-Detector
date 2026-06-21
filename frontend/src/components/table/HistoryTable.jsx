@@ -58,7 +58,7 @@ const HistoryTable = ({ data = [] }) => {
         try {
             const token = localStorage.getItem('token');
             // We pass the basic params available in the history row to generate the PDF
-            const url = `http://127.0.0.1:8000/api/v1/report/${row.id}`;
+            const url = `${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/api/v1/report/${row.id}`;
             const reportResp = await fetch(url, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });

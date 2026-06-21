@@ -28,7 +28,7 @@ const Login = () => {
     initialValues: initialValues,
     onSubmit: async (values) => {
       try {
-        const response = await axios.post('http://localhost:8000/api/v1/auth/login', {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/api/v1/auth/login`, {
           email: values.email_id,
           password: values.password
         });
