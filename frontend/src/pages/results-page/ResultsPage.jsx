@@ -118,7 +118,7 @@ const ResultsPage = () => {
                 onBtnClick={async () => {
                     try {
                         const token = localStorage.getItem('token');
-                        const historyResp = await fetch('http://127.0.0.1:8000/api/v1/history', {
+                        const historyResp = await fetch('${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/api/v1/history', {
                             headers: { 'Authorization': `Bearer ${token}` }
                         });
                         const historyData = await historyResp.json();
@@ -137,7 +137,7 @@ const ResultsPage = () => {
                             keywords: (resultData.keywords || []).join(",")
                         });
 
-                        const url = `http://127.0.0.1:8000/api/v1/report/${latestId}?${params.toString()}`;
+                        const url = `${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/api/v1/report/${latestId}?${params.toString()}`;
                         const reportResp = await fetch(url, {
                             headers: { 'Authorization': `Bearer ${token}` }
                         });
