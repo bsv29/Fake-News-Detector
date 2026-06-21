@@ -13,3 +13,4 @@ sqlalchemy>=2.0.50
 passlib[bcrypt]
 bcrypt==3.2.2
 python-jose[cryptography]
+reportlab>=4.0.0
