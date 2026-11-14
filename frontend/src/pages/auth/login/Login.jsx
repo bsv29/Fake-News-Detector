@@ -1,3 +1,4 @@
+import { API_URL } from '../../../config';
 import { Box, TextField, Button, Typography, InputAdornment, IconButton, Paper } from '@mui/material';
 import { Visibility, VisibilityOff, EmailOutlined, LockOutlined, ShieldOutlined } from '@mui/icons-material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
@@ -28,7 +29,7 @@ const Login = () => {
     initialValues: initialValues,
     onSubmit: async (values) => {
       try {
-        const response = await axios.post(`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/api/v1/auth/login`, {
+        const response = await axios.post(`${API_URL}/api/v1/auth/login`, {
           email: values.email_id,
           password: values.password
         });

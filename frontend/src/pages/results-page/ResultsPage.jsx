@@ -1,4 +1,5 @@
 
+import { API_URL } from '../../config';
 import React from 'react';
 import { Box, Typography, Button, CircularProgress, LinearProgress, Chip } from "@mui/material";
 import {
@@ -118,7 +119,7 @@ const ResultsPage = () => {
                 onBtnClick={async () => {
                     try {
                         const token = localStorage.getItem('token');
-                        const historyResp = await fetch(`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/api/v1/history`, {
+                        const historyResp = await fetch(`${API_URL}/api/v1/history`, {
                             headers: { 'Authorization': `Bearer ${token}` }
                         });
                         const historyData = await historyResp.json();
@@ -137,7 +138,7 @@ const ResultsPage = () => {
                             keywords: (resultData.keywords || []).join(",")
                         });
 
-                        const url = `${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/api/v1/report/${latestId}?${params.toString()}`;
+                        const url = `${API_URL}/api/v1/report/${latestId}?${params.toString()}`;
                         const reportResp = await fetch(url, {
                             headers: { 'Authorization': `Bearer ${token}` }
                         });

@@ -1,3 +1,4 @@
+import { API_URL } from '../../config';
 import React, { useState } from 'react';
 import { Box, TextField, InputAdornment, Select, MenuItem, Button, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
@@ -58,7 +59,7 @@ const HistoryTable = ({ data = [] }) => {
         try {
             const token = localStorage.getItem('token');
             // We pass the basic params available in the history row to generate the PDF
-            const url = `${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/api/v1/report/${row.id}`;
+            const url = `${API_URL}/api/v1/report/${row.id}`;
             const reportResp = await fetch(url, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });

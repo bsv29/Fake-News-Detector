@@ -1,3 +1,4 @@
+import { API_URL } from '../../../config';
 import { Box, TextField, Button, Typography, InputAdornment, IconButton, Paper, Checkbox, FormControlLabel, Divider } from '@mui/material';
 import { Visibility, VisibilityOff, EmailOutlined, LockOutlined, ShieldOutlined, Person } from '@mui/icons-material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
@@ -36,7 +37,7 @@ const Signup = () => {
     if (!canSubmit) return;
     
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}/api/v1/auth/register`, {
+      await axios.post(`${API_URL}/api/v1/auth/register`, {
         username: formData.fullName,
         email: formData.email,
         password: formData.password
