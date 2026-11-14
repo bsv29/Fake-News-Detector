@@ -7,6 +7,7 @@ from app.api.report import router as report_router
 from app.core.config import settings
 from app.database.database import engine, Base
 from app.models.analysis_history import AnalysisHistory
+from app.models.user import User
 import logging
 
 # Configure structured logging
